@@ -10,11 +10,29 @@ if [[ ! -d "${PWD}/config" ]]; then
     hass --config "${PWD}/config" --script ensure_config
 fi
 
+# Install websockets for the dummy server
+pip install websockets
+
+# Start the dummy server in the background
+python3 scripts/dummy_server.py &
+DUMMY_SERVER_PID=$!
+
+# Cleanup function to kill the dummy server on exit
+cleanup() {
+    echo "Cleaning up..."
+    kill $DUMMY_SERVER_PID
+    exit 0
+}
+trap cleanup SIGINT SIGTERM EXIT
+
 # Set the path to custom_components
-## This let's us have the structure we want <root>/custom_components/ffmpeg_player
+## This let's us have the structure we want <root>/custom_components/remote_media_player
 ## while at the same time have Home Assistant configuration inside <root>/config
 ## without resulting to symlinks.
 export PYTHONPATH="${PYTHONPATH}:${PWD}/custom_components"
+
+# Wait for the dummy server to start
+sleep 2
 
 # Start Home Assistant
 hass --config "${PWD}/config" --debug

@@ -1,0 +1,22 @@
+{
+    "config": {
+        "step": {
+            "user": {
+                "title": "Remote Media Player",
+                "description": "Set up a Remote Media Player connection. The URL should start with ws:// or wss://",
+                "data": {
+                    "url": "WebSocket URL",
+                    "name": "Name"
+                }
+            }
+        },
+        "error": {
+            "cannot_connect": "Failed to connect",
+            "invalid_url": "Invalid WebSocket URL",
+            "unknown": "Unexpected error"
+        },
+        "abort": {
+            "already_configured": "This entry is already configured."
+        }
+    }
+}

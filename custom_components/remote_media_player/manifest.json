@@ -1,0 +1,17 @@
+{
+  "domain": "remote_media_player",
+  "name": "Remote Media Player",
+  "codeowners": [
+    "@shyndman"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/shyndman/hass-remote-media-player",
+  "homeassistant": "2025.2.4",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "requirements": [
+    "websockets>=12.0"
+  ],
+  "version": "0.0.0"
+}

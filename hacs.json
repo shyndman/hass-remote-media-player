@@ -1,5 +1,5 @@
 {
-    "name": "FFmpeg Media Player",
+    "name": "Remote Media Player",
     "homeassistant": "2025.2.4",
     "hacs": "2.0.1"
 }
